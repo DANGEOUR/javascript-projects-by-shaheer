@@ -1,130 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<style>
-    .container{
-        width: 100%;
-        height: 100vh;
+  </head>
+  <style>
+    .container {
+      width: 100%;
+      height: 100vh;
     }
-    .container H1{
-        text-align: center;
+    .container H1 {
+      text-align: center;
     }
-    form{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
-    .btn{
-        display: block;
-        margin-top: 50px;
+    .btn {
+      display: block;
+      margin-top: 50px;
     }
-    #btn1{
-        padding: 13px 30px;
-        border: 2px solid black;
-        border-radius: 10px;
+    #btn1 {
+      padding: 13px 30px;
+      border: 2px solid black;
+      border-radius: 10px;
     }
-    #btn2{
-        padding: 13px 30px;
-        border: 2px solid black;
-        border-radius: 10px;
+    #btn2 {
+      padding: 13px 30px;
+      border: 2px solid black;
+      border-radius: 10px;
     }
-    .database{
-        display: block;
-        width: 100%;
-        height: 80vh;
+    .database {
+      display: block;
+      width: 100%;
+      height: 80vh;
     }
-    .database table{
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .database table {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-   table thead tr td{
-    border: 1px solid black;
-    padding: 12px 20px;
-    margin-top: 20px;
-   }
-   .table tbody tr td{
-    border: 1px solid black;
-   }
-</style>
-<body>
+    table thead tr td {
+      border: 1px solid black;
+      padding: 12px 20px;
+      margin-top: 20px;
+    }
+    .table tbody tr td {
+      border: 1px solid black;
+    }
+  </style>
+  <body>
     <div class="container">
-        <h1>MY DATA ENTRY FORM</h1>
-        <form action="">
-            <label for="">Enter your name :</label>
-            <div><input type="text" id="first_name"></div>
-            <label for="">Enter your last name :</label>
-            <div><input type="text" id="last_name"></div>
-            <label for="">Enter your email :</label>
-            <div><input type="email" id="email"></div>
-            <label for="">Enter your password :</label>
-            <div><input type="text" id="password"></div>
-            <label for="">Enter your phone :</label>
-            <div><input type="text" id="phone"></div>
-            <div class="btn">
-                <button id="btn1" type="button">submit</button>
-                <button id="btn2" type="button">reset</button>
-            </div>
-        </form>
-        <div class="database">
-           <table id="table1">
-            <thead>
-                <tr>
-                    <td>NAME</td>
-                    <td>LAST NAME</td>
-                    <td>EMAIL</td>
-                    <td>PASSWORD</td>
-                    <td>PHONE</td>
-                </tr>
-            </thead>
-           <tbody>
-
-           </tbody>
-           </table>
+      <h1>MY DATA ENTRY FORM</h1>
+      <form action="">
+        <label for="">Enter your name :</label>
+        <div><input type="text" id="first_name" /></div>
+        <label for="">Enter your last name :</label>
+        <div><input type="text" id="last_name" /></div>
+        <label for="">Enter your email :</label>
+        <div><input type="email" id="email" /></div>
+        <label for="">Enter your password :</label>
+        <div><input type="text" id="password" /></div>
+        <label for="">Enter your phone :</label>
+        <div><input type="text" id="phone" /></div>
+        <div class="btn">
+          <button id="btn1" type="button">submit</button>
+          <button id="btn2" type="button">reset</button>
         </div>
+      </form>
+      <div class="database">
+        <table id="table1">
+          <thead>
+            <tr>
+              <td>NAME</td>
+              <td>LAST NAME</td>
+              <td>EMAIL</td>
+              <td>PASSWORD</td>
+              <td>PHONE</td>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </div>
     <script>
+      async function exe() {
         let btn1 = document.getElementById("btn1");
-        btn1.addEventListener('click',function(){
-            let first_name = document.getElementById("first_name").value;
-            let last_name = document.getElementById("last_name").value;
-            let email = document.getElementById("email").value;
-            let password = document.getElementById("password").value;
-            let phone = document.getElementById("phone").value;
 
-            let table1 = document.getElementById("table1");
-            let row = table1.insertRow(1);
+        btn1.addEventListener("click", function () {
+          let First_name = document.getElementById("first_name").value;
+          let last_name = document.getElementById("last_name").value;
+          let email = document.getElementById("email").value;
+          let password = document.getElementById("password").value;
+          let phone = document.getElementById("phone").value;
 
+          let table1 = document.getElementById("table1");
+          let row = table1.insertRow(1);
+          if (
+            First_name !== "" &&
+            last_name !== "" &&
+            email !== "" &&
+            password !== "" &&
+            phone !== ""
+          ) {
             let cell1 = row.insertCell(0);
             let cell2 = row.insertCell(1);
             let cell3 = row.insertCell(2);
             let cell4 = row.insertCell(3);
             let cell5 = row.insertCell(4);
 
-            cell1.innerHTML=first_name;
-            cell2.innerHTML=last_name;
-            cell3.innerHTML=email;
-            cell4.innerHTML=password;
-            cell5.innerHTML=phone;
-
-        })
+            cell1.innerHTML = First_name;
+            cell2.innerHTML = last_name;
+            cell3.innerHTML = email;
+            cell4.innerHTML = password;
+            cell5.innerHTML = phone;
+          } else {
+            alert("plz fill out complete form");
+          }
+        });
 
         let btn2 = document.getElementById("btn2");
-        btn2.addEventListener('click',function(){
-            confirm("you want to reset your form")
-            let first_name = document.getElementById("first_name").value="";
-            let last_name = document.getElementById("last_name").value="";
-            let email = document.getElementById("email").value="";
-            let password = document.getElementById("password").value="";
-            let phone = document.getElementById("phone").value="";
-        })
+
+        btn2.addEventListener("click", function () {
+          if (document.getElementById("btn2")) {
+            confirm("you want to reset your form");
+            First_name = document.getElementById("first_name").value = "";
+            last_name = document.getElementById("last_name").value = "";
+            email = document.getElementById("email").value = "";
+            password = document.getElementById("password").value = "";
+            phone = document.getElementById("phone").value = "";
+
+            row = table1.deleteRow(1);
+          }
+        });
+      }
+      exe();
     </script>
-</body>
+  </body>
 </html>
